@@ -41,12 +41,8 @@
           
           if (data.userSelectedType === 'R') {
               roadAddress = data.roadAddress
-          }
-
-          if (data.jibunAddress == "") {
-            jibunAddress = data.autoJibunAddress
-          } else if (data.autoJibunAddress == "") {
-            jibunAddress = data.jibunAddress
+          } else {
+              jibunAddress = data.autoJibunAddress
           }
 
           var postData = {
