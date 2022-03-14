@@ -33,11 +33,12 @@
       }
       
       var element_layer = document.getElementById('layer');
+      
       function execDaumPostcode() {
         new daum.Postcode({
           oncomplete: function(data) {
             var jibunAddress = ""
-
+            
             if (data.jibunAddress == "") {
               jibunAddress = data.autoJibunAddress
             } else if (data.autoJibunAddress == "") {
@@ -50,7 +51,6 @@
               zonecode : data.zonecode,
               userSelectedType : data.userSelectedType
             };
-            
             window.postMessageToiOS(postData);
           },
           width : '100%',
