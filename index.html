@@ -36,17 +36,24 @@
     function execDaumPostcode() {
       new daum.Postcode({
         oncomplete: function(data) {
-          var jibunAddress = ""
-
-          if (data.jibunAddress == "") {
-            jibunAddress = data.autoJibunAddress
-          } else if (data.autoJibunAddress == "") {
-            jibunAddress = data.jibunAddress
+          var address = ""
+          
+          if (data.userSelectedType == 'R') {
+            if (data.roadAddress == "") {
+              address = data.autoRoadAddress
+            } else if (data.autoRoadAddress == "") {
+              address = data.roadAddress
+            }
+          } else {
+            if (data.jibunAddress == "") {
+              address = data.autoJibunAddress
+            } else if (data.autoJibunAddress == "") {
+              address = data.jibunAddress
+            }
           }
 
           var postData = {
-              roadAddress : data.roadAddress,
-              jA : jibunAddress,
+              address : address,
               zonecode : data.zonecode
           };
           window.postMessageToiOS(postData);
