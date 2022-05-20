@@ -45,10 +45,12 @@
           }
 
           var postData = {
-              roadAddress : data.roadAddress,
-              jibunAddress : jibunAddress,
-              zonecode : data.zonecode,
-            userSelectedType : data.userSelectedType
+            roadAddress : data.roadAddress,
+            jibunAddress : jibunAddress,
+            zonecode : data.zonecode,
+            userSelectedType : data.userSelectedType,
+            sido : data.sido,
+            sigungu : data.sigungu
           };
           window.postMessageToiOS(postData);
         },
